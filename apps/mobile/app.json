@@ -1,0 +1,12 @@
+{
+  "expo": {
+    "name": "Study Hall",
+    "slug": "study-hall",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "studyhall",
+    "userInterfaceStyle": "automatic",
+    "platforms": ["ios", "android"],
+    "assetBundlePatterns": ["**/*"]
+  }
+}

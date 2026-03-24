@@ -1,0 +1,19 @@
+{
+  "name": "study-hall",
+  "private": true,
+  "scripts": {
+    "build": "turbo run build",
+    "dev": "turbo run dev",
+    "lint": "turbo run lint",
+    "db:generate": "pnpm --filter @repo/database exec prisma generate",
+    "db:push": "pnpm --filter @repo/database exec prisma db push"
+  },
+  "devDependencies": {
+    "turbo": "^2.4.4",
+    "typescript": "^5.7.3"
+  },
+  "packageManager": "pnpm@9.15.4",
+  "engines": {
+    "node": ">=20"
+  }
+}
