@@ -22,7 +22,15 @@ export type UserDTO = {
   createdAt: string;
 };
 
+/** Returned only for auth flows — not exposed to API responses. */
+export type UserCredential = {
+  id: string;
+  email: string;
+  passwordHash: string;
+};
+
 export interface IUserRepository {
   findByEmail(email: string): Promise<UserDTO | null>;
+  findCredentialByEmail(email: string): Promise<UserCredential | null>;
   create(input: { email: string; passwordHash: string }): Promise<UserDTO>;
 }

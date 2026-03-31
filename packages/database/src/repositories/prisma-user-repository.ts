@@ -1,5 +1,9 @@
 import type { PrismaClient } from "@prisma/client";
-import type { IUserRepository, UserDTO } from "../contracts.js";
+import type {
+  IUserRepository,
+  UserCredential,
+  UserDTO,
+} from "../contracts.js";
 
 export class PrismaUserRepository implements IUserRepository {
   constructor(private readonly db: PrismaClient) {}
@@ -11,6 +15,16 @@ export class PrismaUserRepository implements IUserRepository {
       id: r.id,
       email: r.email,
       createdAt: r.createdAt.toISOString(),
+    };
+  }
+
+  async findCredentialByEmail(email: string): Promise<UserCredential | null> {
+    const r = await this.db.user.findUnique({ where: { email } });
+    if (!r) return null;
+    return {
+      id: r.id,
+      email: r.email,
+      passwordHash: r.passwordHash,
     };
   }
 
