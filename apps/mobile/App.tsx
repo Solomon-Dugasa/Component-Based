@@ -1,21 +1,11 @@
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View } from "react-native";
+import { TaskBoardScreen } from "./src/screens/TaskBoardScreen";
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Mobile scaffold — will compose screens from local and shared contract components.</Text>
-      <StatusBar style="auto" />
-    </View>
+    <>
+      <TaskBoardScreen />
+      <StatusBar style="dark" />
+    </>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 24,
-  },
-});
